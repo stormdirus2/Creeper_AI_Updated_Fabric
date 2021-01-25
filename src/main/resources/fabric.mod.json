@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "creeperaiupdated",
-  "version": "${version}",
+  "version": "1.3",
 
   "name": "Creeper AI Updated",
   "description": "Gives creepers the ability of see trough walls, spawn powered and explode if they can't reach you, destroying obstacles and walls.",
@@ -10,7 +10,7 @@
   ],
   "contact": {
     "homepage": "",
-    "sources": "https://github.com/SrGnis/Creeper_AI_Updated-Fabric"
+    "sources": "https://github.com/SrGnis/Creeper_AI_Updated_Fabric"
   },
 
   "license": "mit",
