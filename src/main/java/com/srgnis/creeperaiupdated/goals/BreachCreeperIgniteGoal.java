@@ -38,7 +38,8 @@ public class BreachCreeperIgniteGoal extends Goal {
     }
 
     private boolean breakWall(LivingEntity livingEntity) {
-        return creeper.age > 60 && !creeper.isNavigating() && creeper.squaredDistanceTo(livingEntity) < CreeperAIUpdated.config.breachingRadius;
+        float result = livingEntity.getPos().getY() - creeper.getPos().getY();
+        return creeper.age > 60 && !creeper.isNavigating() && result*result < 25;
     }
 
     public void start() {
@@ -53,7 +54,7 @@ public class BreachCreeperIgniteGoal extends Goal {
     public void tick() {
         if (this.target == null) {
             this.creeper.setFuseSpeed(-1);
-        } else if (this.creeper.squaredDistanceTo(this.target) > 49.0D && !this.breakWall(target)) {
+        } else if (this.creeper.squaredDistanceTo(this.target) > 36.0D && !this.breakWall(target)) {
             this.creeper.setFuseSpeed(-1);
         } else {
             this.creeper.setFuseSpeed(1);
