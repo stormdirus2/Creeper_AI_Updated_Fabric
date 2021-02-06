@@ -18,12 +18,5 @@ public abstract class CreeperEntityMixin extends HostileEntity {
         super(entityType, world);
     }
 
-    @Redirect(method = "Lnet/minecraft/entity/mob/CreeperEntity;explode()V", at = @At( value = "INVOKE", target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/explosion/Explosion$DestructionType;)Lnet/minecraft/world/explosion/Explosion;" ))
-    private Explosion redirectCreateExplosion(World world, Entity entity, double x, double y, double z, float power, Explosion.DestructionType destructionType){
-        if(CreeperAIUpdated.config.fireExplosions) {
-            return world.createExplosion(entity, x, y, z, power, true, destructionType);
-        } else{
-            return world.createExplosion(entity, x, y, z, power, false, destructionType);
-        }
-    }
+   
 }
