@@ -38,16 +38,9 @@ public abstract class MobEntityMixin extends LivingEntity {
         if(getType() == EntityType.CREEPER){
             Object object = this;
             CreeperEntity centity = ((CreeperEntity)object);
-            if(getRandom().nextDouble() >= CreeperAIUpdated.config.poweredChance  && spawnReason == SpawnReason.NATURAL){
-
-                CompoundTag tag = new CompoundTag();
-                centity.writeCustomDataToTag(tag);
-                tag.putBoolean("powered", true);
-                centity.readCustomDataFromTag(tag);
-            }
 
             //TODO Follow Range
-            centity.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE).setBaseValue(CreeperAIUpdated.config.followingRadius);
+            centity.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE).setBaseValue(50);
 
             GoalSelector targets = ((MobEntityAccessor) centity).getTargetSelector();
             Set<PrioritizedGoal> tGoals = ((GoalSelectorAccessor) targets).getGoals();
