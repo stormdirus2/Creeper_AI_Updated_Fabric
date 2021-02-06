@@ -38,7 +38,7 @@ public class BreachCreeperIgniteGoal extends Goal {
     }
 
     private boolean breakWall(LivingEntity livingEntity) {
-        float result = livingEntity.getPos().getY() - creeper.getPos().getY();
+        double result = livingEntity.getPos().getY() - creeper.getPos().getY();
         return creeper.age > 60 && !creeper.isNavigating() && result*result < 25;
     }
 
